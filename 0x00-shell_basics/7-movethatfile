@@ -1,2 +1,2 @@
 #!/bin/bash/
-touch /tmp/my_first_directory / betty
+touch my_first_directory / betty
