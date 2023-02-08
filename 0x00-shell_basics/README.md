@@ -4,4 +4,5 @@ ls, it display the contents of your current director
 ls -l, lists files or directories in long format
 ls -la, lists all files and directories even hidden ones
 mv , used to move files and folders
-cd .. , used to move back one directory  
+cd .. , used to move back one directory
+type, used to findout the type of file the file is  
