@@ -1,2 +1,2 @@
 #!/bin/bash/
-touch my_first_directory / betty
+rm -i my_first_directory / betty
