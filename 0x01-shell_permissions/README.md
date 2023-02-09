@@ -6,3 +6,4 @@ chmod 754- allows owner full permission, reand and execute for group and read on
 chmod 007- allows full permission to others only
 chmod 75-- allows owner full permission, read and execute for group and write and execute for others
 chmod 664 allows ownerand group  to read and write, and others read only
+chmod 711 aloow owner full permission, execute right to group and others
