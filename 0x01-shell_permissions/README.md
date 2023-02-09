@@ -9,3 +9,4 @@ chmod 664 allows ownerand group  to read and write, and others read only
 chmod 711 aloow owner full permission, execute right to group and others
 chmod 751 allow full permission to owner, read and execute for group and execute for others
 mkdir -m 751 dirname - create dir with certain permissions
+chgrp newgroup filename- change group ownership
