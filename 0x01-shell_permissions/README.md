@@ -1,1 +1,2 @@
 chown- changes the file ownership
+whoami- shows the name of the current user
