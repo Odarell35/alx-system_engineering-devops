@@ -1,2 +1,2 @@
 #!/bin/bash
-chgrp -hR staff /tmp/h
+chown vincent:staff /tmp/h
