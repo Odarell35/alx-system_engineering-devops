@@ -1,2 +1,2 @@
 #!/bin/bash
-
+echo $(( echo $PATH | $(ls :/*) |wc -l +1))
