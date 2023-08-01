@@ -1,3 +1,3 @@
 #!/usr/bin/env ruby
-regex = /h.{0,1}n/
+regex = /h\wn/
 puts ARGV[0].scan(regex).join
