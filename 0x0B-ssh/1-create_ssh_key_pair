@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # Name of the private key
 private_key_name="school"
 
