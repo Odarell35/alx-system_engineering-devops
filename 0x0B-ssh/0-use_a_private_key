@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-
 # Server details
+
 server=172.17.0.5
 user="ubuntu"
 
