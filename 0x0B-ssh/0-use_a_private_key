@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-# Server details
-
-server=172.17.0.5
-user="ubuntu"
-
-# SSH with specified key and user
-ssh -i ~/.ssh/school $user@$server
