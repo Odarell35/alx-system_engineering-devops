@@ -2,6 +2,6 @@
 #displays all active IPv4 IPs on the machine it’s executed on
 interfaces=$(ip -o -4 addr show | awk '{print $2}')
 for interface in $interfaces; do
-	ipv4=$(ip -o -4 addr show $interface | grep -Eo '[0-9.]+/[0-9]+' | cut -d '/' -f 1)
+	ipv4=$(ip -o -4 addr show "$interface" | grep -Eo '[0-9.]+/[0-9]+' | cut -d '/' -f 1)
 	echo "$ipv4"
 done
