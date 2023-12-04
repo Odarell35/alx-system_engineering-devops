@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+#configuring like web-01
+
+server_name=$(hostname)
+sudo apt-get update -y
+sudo apt-get install nginx -y
+sudo ufw allow 'Nginx HTTP'
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
+echo "Ceci n'est pas une error_page" > /usr/share/nginx/html/custom_404.html
+
+# Default server configuration
+#
+echo "server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+	root /var/www/html;
+	
+
+	index index.html index.htm index.nginx-debian.html;
+
+	server_name _;
+
+	location / {
+        # First attempt to serve request as file, then
+        # as a directory, then fall back to displaying a 404.
+        try_files \$uri \$uri/ =404;
+    }
+
+	location /redirect_me {
+        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+    }
+
+	add_header X-Serveed-By $server_name;
+}
+" > etc/nginx/sites-enabled/default
+
+sudo systemct1 restart nginx
+
+
