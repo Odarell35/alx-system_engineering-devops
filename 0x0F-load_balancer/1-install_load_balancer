@@ -17,7 +17,7 @@ backend lerato_backend
         server 291149-web-01 100.26.247.248:80 check
         server 291149-web-02 52.91.120.195:80 check
 "
-echo "$replace" |" sudo tee -a /etc/haproxy/haproxy.cfg
+echo "$replace" | sudo tee -a /etc/haproxy/haproxy.cfg
 
 #step 3- enable haproxy to be started by init script
 echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
