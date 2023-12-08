@@ -8,7 +8,7 @@ setting_domain() {
 	if [ -z "$subdomain" ]; then
 		subdomains=("www" "lb-01" "web-01" "web-02")
 	else
-		subdomains=('$subdomain')
+		subdomains="$2"
 	fi
 
 	for s in "${subdomains[@]}"; do
