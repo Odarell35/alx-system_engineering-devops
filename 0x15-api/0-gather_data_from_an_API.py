@@ -28,7 +28,7 @@ def display_todo(_name, todo_data):
     """
     t_tasks = len(todo_data)
     c_tasks = sum(task['completed'] for task in todo_data)
-    
+
     print("Employee {} is done with tasks({}/{}):".
           format(_name, c_tasks, t_tasks))
 
