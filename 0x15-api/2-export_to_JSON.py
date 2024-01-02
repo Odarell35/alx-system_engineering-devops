@@ -12,10 +12,8 @@ if __name__ == "__main__":
     session = requests.Session()
 
     _id = sys.argv[1]
-    base_url = 'https://jsonplaceholder.typicode.com/users/{}/todos'
-        .format(_id)
-    user_url = 'https://jsonplaceholder.typicode.com/users/{}'
-            .format(_id)
+    base_url = 'https://jsonplaceholder.typicode.com/users/{}/todos'.format(_id)
+    user_url = 'https://jsonplaceholder.typicode.com/users/{}'.format(_id)
 
     emp_id = session.get(base_url)
     emp_name = session.get(user_url)
