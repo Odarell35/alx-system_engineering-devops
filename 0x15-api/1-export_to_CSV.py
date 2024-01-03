@@ -1,26 +1,40 @@
 #!/usr/bin/python3
-"""
-Python script to export data in the CSV format.
-"""
 import csv
 import json
 import requests
 import sys
 
+def get_employee_todo_progress(employee_id):
+    base_url = 'https://jsonplaceholder.typicode.com'
+    user_url = f'{base_url}/users/{employee_id}'
+    todo_url = f'{base_url}/todos?userId={employee_id}'
+
+    # Fetch user information
+    user_response = requests.get(user_url)
+    user_data = user_response.json()
+    employee_name = user_data.get('username')
+
+    # Fetch todo list
+    todo_response = requests.get(todo_url)
+    todo_data = todo_response.json()
+    total_tasks = len(todo_data)
+    done_tasks = [task for task in todo_data if task['completed']]
+
+    # Export to CSV
+    filename = f"{employee_id}.csv"
+    with open(filename, 'w', newline='') as csvfile:
+        fieldnames = ['employee_id', 'employee_name', 'task_status', 'task_title']
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames, quoting=csv.QUOTE_ALL)
+
+        for task in todo_data:
+            writer.writerow({
+                'employee_id': employee_id,
+                'employee_name': employee_name,
+                'task_status':'True' if task['completed'] else 'False',
+                'task_title': task['title']
+                })
+
 
 if __name__ == "__main__":
-
-    _id = sys.argv[1]
-    base_url = requests.get("https://jsonplaceholder.typicode.com/users/{}"
-            .format(_id))
-    todos_res = requests.get('https://jsonplaceholder.typicode.com/todos')
-    name = base_url.json().get('username')
-
-    filecsv = _id + '.csv'
-    with open(filecsv, mode='w', newline="") as f:
-        write = csv.writer(f, delimiter=',', quotechar='"',
-                quoting=csv.QUOTE_ALL, lineterminator='\n')
-        for i in todos_res.json():
-            if i.get('_id') == int(_id):
-                write.writerow([_id, name, str(i.get('completed')),
-                            i.get('title')])
+    employee_id = int(sys.argv[1])
+    get_employee_todo_progress(employee_id)
