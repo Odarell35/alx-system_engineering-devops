@@ -1,10 +1,12 @@
 #!/usr/bin/python3
+"""export to CSV"""
 import csv
 import json
 import requests
 import sys
 
 def get_employee_todo_progress(employee_id):
+    """MEHTOD TO EXPORT"""
     base_url = 'https://jsonplaceholder.typicode.com'
     user_url = f'{base_url}/users/{employee_id}'
     todo_url = f'{base_url}/todos?userId={employee_id}'
