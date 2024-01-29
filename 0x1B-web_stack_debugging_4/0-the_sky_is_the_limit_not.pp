@@ -1,6 +1,6 @@
 # increasing file read limit
 exec { 'increase ulimit':
-  command  => "sed -i 's/^ULIMIT=.*/ULIMIT=\"-n 160000\"/' /etc/default/nginx",
+  command  => "sed -i 's/^ULIMIT=.*/ULIMIT=\"-n 16000\"/' /etc/default/nginx",
 }
 
 -> exec { 'reset':
